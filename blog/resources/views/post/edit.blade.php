@@ -6,7 +6,7 @@
       <div class="card">
         <div class="card-header fw-bold">{{ __('Edit Post') }}</div>
         <div class="card-body">
-          <form method="POST" action="/post/{{$post->slug}}" enctype="multipart/form-data">
+          <form method="POST" action="{{route('post.update',$post->slug)}}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row mb-3">

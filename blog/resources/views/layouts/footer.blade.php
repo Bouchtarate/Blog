@@ -16,11 +16,6 @@ use App\Models\Categories;
             class="text-light text-opacity-50 fw-bold nav-link ">{{$category->title}}
           </a></li>
             @endforeach
-            @if (Auth::user()->type === 'owner')
-            <li><a
-              href="/categories/create"
-              class="text-light text-opacity-50 fw-bold nav-link">Create Category</a></li>
-            @endif
         </ul>
       </div>
       <div class="col mt-5">

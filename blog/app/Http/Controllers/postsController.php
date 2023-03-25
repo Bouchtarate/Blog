@@ -54,7 +54,7 @@ class postsController extends Controller
       'category_id' => $request->input('category'),
     ]);
     return redirect('/post')
-      ->with('message', 'Your update has been applied successfully');
+      ->with('success', 'Your creation has been applied successfully');
   }
   /**
    * Display the specified resource.

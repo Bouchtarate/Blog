@@ -3,7 +3,11 @@
 <div class="container">
   <div class="text-center">
     <h1 class="py-3 text-primary">{{ Auth::user()->name }} Posts</h1>
-    {{-- {{$categories}} --}}
+    @if (session()->has('success'))
+    <div class="alert alert-success">
+      {{session()->get('success')}}
+    </div>
+  @endif
     <div class="row pt-3">
       @foreach ($posts as $post)
       <div class="col-12 col-sm-6 col-md-4 mb-3">
@@ -24,7 +28,7 @@
             </p>
             <div class="d-flex justify-content-between align-items-center">
               <a href="/post/{{$post->slug}}/edit" class="btn btn-warning text-light mx-2">Edit Post</a>
-              <form action="/post/{{$post->slug}}" method="POST">
+              <form action="{{route('post.destroy',$post->slug)}}" method="POST">
                 @csrf
                 @method('delete')
                 <button type="submit" class="btn btn-danger mx-2">Delete Post</button>

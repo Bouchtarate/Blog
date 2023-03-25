@@ -63,10 +63,12 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/profile">Profile</a>
-                                @if (Auth::user()->type === 'admin')
-                                  <a href="/admin" class="dropdown-item">Admin Dashboard</a>
+                                @if (Auth::user()->type === 'owner')
+                                <a href="/admin" class="dropdown-item">Admin Dashboard</a>
+                                <a
+                                  href="/categories"
+                                  class="dropdown-item">Category section</a>
                                 @endif
-
                                 <a class="dropdown-item" href="/"
                                       onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
