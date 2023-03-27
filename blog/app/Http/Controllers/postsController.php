@@ -30,6 +30,7 @@ class postsController extends Controller
       'categories' => Categories::all()
     ]);
   }
+
   /**
    * Store a newly created resource in storage.
    */
