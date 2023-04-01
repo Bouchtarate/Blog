@@ -7,7 +7,7 @@
     <div class="alert alert-success">
       {{session()->get('success')}}
     </div>
-  @endif
+    @endif
     <div class="row pt-3">
       @foreach ($posts as $post)
       <div class="col-12 col-sm-6 col-md-4 mb-3">
