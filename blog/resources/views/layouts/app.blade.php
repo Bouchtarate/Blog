@@ -30,6 +30,7 @@
 
                 @if (Auth::user())
                 <img
+<<<<<<< HEAD
                 alt="{{Auth::user()->image_path}}"
                 class="rounded-circle"
               />
@@ -37,6 +38,14 @@
                   LOGO
                 @endif
 
+=======
+                src="{{asset("images/".Auth::user()->image_path)}}"
+                alt="{{Auth::user()->image_path}}"
+                class="rounded-circle"
+              />
+                @endif
+                LOGO
+>>>>>>> df151d144e0d038026970a3e3706c69885aef356
               </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
