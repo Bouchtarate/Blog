@@ -23,10 +23,21 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                {{-- <a class="navbar-brand" href="{{ url('/') }}">
+                  LOGO
+                </a> --}}
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{-- {{ config('app.name', 'Laravel') }} --}}
-                    LOGO
-                </a>
+
+                @if (Auth::user())
+                <img
+                alt="{{Auth::user()->image_path}}"
+                class="rounded-circle"
+              />
+                @else
+                  LOGO
+                @endif
+
+              </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -63,10 +74,12 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/profile">Profile</a>
-                                @if (Auth::user()->type === 'admin')
-                                  <a href="/admin" class="dropdown-item">Admin Dashboard</a>
+                                @if (Auth::user()->type === 'owner')
+                                <a href="/admin" class="dropdown-item">Admin Dashboard</a>
+                                <a
+                                  href="/categories"
+                                  class="dropdown-item">Category section</a>
                                 @endif
-
                                 <a class="dropdown-item" href="/"
                                       onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

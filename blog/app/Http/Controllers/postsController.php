@@ -30,6 +30,7 @@ class postsController extends Controller
       'categories' => Categories::all()
     ]);
   }
+
   /**
    * Store a newly created resource in storage.
    */
@@ -54,7 +55,7 @@ class postsController extends Controller
       'category_id' => $request->input('category'),
     ]);
     return redirect('/post')
-      ->with('message', 'Your update has been applied successfully');
+      ->with('success', 'Your creation has been applied successfully');
   }
   /**
    * Display the specified resource.

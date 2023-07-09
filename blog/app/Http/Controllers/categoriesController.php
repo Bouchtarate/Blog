@@ -15,7 +15,7 @@ class categoriesController extends Controller
   public function index()
   {
     return view(
-      'categories/index',
+      'categories.index',
       [
         'categories' => Categories::all(),
       ]
@@ -27,7 +27,7 @@ class categoriesController extends Controller
    */
   public function create()
   {
-    return view('categories/index');
+    return view('categories.index');
   }
 
   /**
@@ -82,16 +82,25 @@ class categoriesController extends Controller
   /**
    * Update the specified resource in storage.
    */
-  public function update(Request $request, string $id)
+  public function update(Request $request, string $slug)
   {
-    //
+    $request->validate([
+      'title' => ['required']
+    ]);
+    Categories::where('slug', $slug)->update([
+      'title' => $request->input('title'),
+      'slug' => SlugService::createSlug(Categories::class, 'slug', $request->title),
+    ]);
+    return back();
   }
 
   /**
    * Remove the specified resource from storage.
    */
-  public function destroy(string $id)
+  public function destroy(string $slug)
   {
-    //
+    $category = Categories::where('slug', $slug);
+    $category->delete();
+    return back();
   }
 }

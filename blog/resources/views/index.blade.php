@@ -24,7 +24,12 @@
             </div>
             <p class="card-text text-dark text-opacity-50">{{$post->description}}</p>
             <div class="d-flex align-items-center justify-content-between pt-3">
-              <a class="card-text nav-link m-0 fw-bold" href="categories/{{$post->category->slug}}"><small class="text-muted">{{$post->category->title}}</small></a>
+              <a class="card-text nav-link m-0 fw-bold"
+              @if (!Auth::user())
+              href="/login"
+              @endif
+              href="categories/{{$post->category->slug}}"
+              ><small class="text-muted">{{$post->category->title}}</small></a>
               <a
               @guest
                 href="/login"

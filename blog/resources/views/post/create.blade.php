@@ -15,7 +15,7 @@
                 @endforeach
             </div>
           @endif
-          <form method="POST" action="/post" enctype="multipart/form-data">
+          <form method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="row mb-3">
                 <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Title') }}</label>
